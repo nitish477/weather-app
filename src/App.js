@@ -63,7 +63,7 @@ function App() {
             </div>
 
             <div className='maxtemp'>
-              <p>min: <br />  {(weathers?.main?.temp_min - 273).toFixed(2)}°C </p>
+              <p>Min_temp: <br />  {(weathers?.main?.temp_min - 273).toFixed(2)}°C </p>
               <p>Max_temp: <br /><span>  {(weathers?.main?.temp_max - 273).toFixed(2)}°C  </span></p>
             </div>
           </div>
