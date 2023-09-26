@@ -19,6 +19,10 @@
     display: flex;
     justify-content: space-evenly;
 }
+.mobile-screen{
+    display: flex;
+    justify-content: space-around;
+}
 
 .img {
     height: 250px;
