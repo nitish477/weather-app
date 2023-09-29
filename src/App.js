@@ -26,16 +26,15 @@ function App() {
 
   useEffect(() => {
     loadWeather();
-  }, [])
+  },[])
 
   useEffect(() => {
     loadWeather();
-  }, [city])
+  },[city])
 
   useEffect(() => {
     setWeatherDiscripyion(` ${weathers?.weather?.[0]?.main} 
  (${weathers?.weather?.[0]?.description}) `)
-
   }, [weathers])
 
   return (
@@ -63,8 +62,8 @@ function App() {
             </div>
 
             <div className='maxtemp'>
-              <p>Min_temp: <br />  {(weathers?.main?.temp_min - 273).toFixed(2)}°C </p>
-              <p>Max_temp: <br /><span>  {(weathers?.main?.temp_max - 273).toFixed(2)}°C  </span></p>
+              <p>Min temp: <br />  {(weathers?.main?.temp_min - 273).toFixed(2)}°C </p>
+              <p>Max temp: <br /><span>  {(weathers?.main?.temp_max - 273).toFixed(2)}°C  </span></p>
             </div>
           </div>
           <div>
@@ -90,11 +89,11 @@ function App() {
                 {(weathers?.main?.humidity)}% (Humidity)
               </p>
             </div>
-            <div>
+            {/* <div>
               <p><img src="https://cdn-icons-png.flaticon.com/128/8740/8740155.png" alt="" className='icon' />
-                :   {(weathers?.main?.sea_level)} mm (Sea_level)
+                :   {(weathers?.main?.sea_level)} mm (Sea level)
               </p>
-            </div>
+            </div> */}
           </div>
           <div className='sub'>
             <div> <p><img src="https://cdn-icons-png.flaticon.com/128/1506/1506761.png" alt="" className='icon' /> :
