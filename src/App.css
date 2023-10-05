@@ -68,6 +68,17 @@
     font-size: 30px;
     font-weight: 550;
 }
+.position{
+    position: relative;
+    width: auto;
+}
+.emoji{
+    position: absolute;
+    right: 500px;
+    bottom: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 768px) {
     .main-container {

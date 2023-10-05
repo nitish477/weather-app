@@ -22,6 +22,32 @@ function App() {
 
   }
 
+  const fetchLocation = () => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(async function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+        try {
+          const response = await axios.get(apiUrl);
+          if (response.data.display_name) {
+            const formattedAddress = response.data.display_name;
+            setCity(formattedAddress);
+          } else {
+            setCity('Address not found');
+          }
+        } catch (error) {
+          console.error('Error fetching address:', error);
+          setCity('Error fetching address');
+        }
+      });
+    } else {
+      alert('Geolocation is not available in your browser.');
+    }
+  };
+
 
 
   useEffect(() => {
@@ -40,6 +66,7 @@ function App() {
   return (
     <>
       <div className='container'>
+        <div className='position'>
         <input
           className='cityInput'
           type='text'
@@ -47,7 +74,8 @@ function App() {
           value={city}
           onChange={(e) => { setCity(e.target.value) }}
         />
-
+        <span className='emoji' onClick={fetchLocation} >📍</span>
+      </div>
 
         <div className='top-bar'>
           <div className='mobile-screen'>
@@ -65,6 +93,8 @@ function App() {
               <p>Min temp: <br />  {(weathers?.main?.temp_min - 273).toFixed(2)}°C </p>
               <p>Max temp: <br /><span>  {(weathers?.main?.temp_max - 273).toFixed(2)}°C  </span></p>
             </div>
+            <br/><br/>
+            
           </div>
           <div>
             <img src={cloud} className='img' alt='' />
