@@ -103,10 +103,22 @@
         font-size: 20px; /* Decrease font size for smaller screens */
     }
     .container{
-        height: 108vh;
+       height: auto;
     }
     .mobile-screen{
         display: flex;
         justify-content: space-evenly;
     }
+    .position{
+        position: relative;
+        width: auto;
+    }
+    .emoji{
+        position: absolute;
+        right: 50px;
+        bottom: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
 }
