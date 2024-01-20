@@ -81,6 +81,7 @@ function App() {
           <div className='mobile-screen'>
             <div>
 
+            
               <p>City : <span style={{ fontSize: '20px' }}> {weathers?.name} </span>
 
                 <br />  temperature <br />
